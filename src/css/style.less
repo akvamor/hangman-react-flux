@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'AllerDisplay';
+    src: url('../fonts/AllerDisplay.ttf');
+}
+// colors
+@gray: #53555d;
+@blue: #4d71fa;
+@dark-blue: #3b4163;
+@white: #f5f5f5;
+
+body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: @dark-blue;
+    font-family: AllerDisplay;
+
+    #game-field {
+        position: relative;
+        width: 943px;
+        height: 530px;
+        padding: 40px;
+        border-radius: 10px;
+        background-image: url(../imgs/blue.png);
+        background-repeat: no-repeat;
+        background-position: 655px 150px;
+        background-size: contain;
+        margin: 0 auto;
+        // transform: scale(.7);
+        .wrong-field {
+            color: @blue;
+            text-transform: uppercase;
+            p {
+                color: @gray;
+            }
+            div {
+                margin-top: -20px;
+            }
+        }
+        .hangman {
+            width: 350px;
+            height: 308px;
+            float: left;
+            img.rel{
+                position: relative;
+                display: block;
+                
+            }
+        }
+        .word-field {
+            overflow: hidden;
+            text-align: center;
+            position: absolute;
+            bottom: 32px;
+            background: none;
+            .field {
+                display: inline-block;
+                .letter-item {
+                    color: @white;
+                    margin: 3px;
+                    width: 73px;
+                    height: 80px;
+                    line-height: 80px;
+                    font-size: 300%;
+                    text-transform: uppercase;
+                    span {
+                        opacity: 0;
+                    }
+                    span.show {
+                        opacity: 1;
+                        transition: opacity 1s;
+                    }
+                }
+                .letter-item:first-child {
+                    margin-right: 0px;
+                }
+                .letter-item:last-child {
+                    margin-left: 0px;
+                }  
+            }
+        }
+        .loading {
+            position: absolute;
+            width: 100%;
+            top: 200px;
+            margin-left: -40px;
+            background: none;
+        }
+    }
+    #game-over {
+        .popup {
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            background: @dark-blue;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        .content {
+            position: absolute;
+            top: 255px;
+            color: @white;
+            width: 100%;
+            text-align: center;
+            opacity: 1;
+            z-index: 2;
+        }
+    }
+}
+.white {
+background: @white;
+}
+.dark {
+    background: @gray;
+}
+
+// font size
+.large {
+    font-size: 430%;
+}
+.middle {
+    font-size: 150%;
+}
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+.well {
+    padding: 0;
+    margin-bottom: 0;
+}
